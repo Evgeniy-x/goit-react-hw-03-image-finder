@@ -21,6 +21,7 @@ const ImageGalleryItem = ({ id, src, largeURL, handleState }) => {
       >
         {load ? <Spin /> : null}
         <img
+          style={{ display: `${display}` }}
           className={css.imageGalleryItemImage}
           src={src}
           alt={id}

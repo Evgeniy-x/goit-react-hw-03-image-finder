@@ -14,7 +14,7 @@ class ImageGallery extends Component {
     this.setState({ srcLarge: largeUrl, showModal: true });
   };
 
-  toggleModal = () => {
+  disableModal = () => {
     this.setState({ showModal: false });
   };
 
@@ -33,8 +33,8 @@ class ImageGallery extends Component {
           ))}
         </ul>
         {this.state.showModal && (
-          <Modal onClose={this.toggleModal}>
-            <img src={this.state.srcLarge} alt="" />
+          <Modal onClose={this.disableModal}>
+            <img src={this.state.srcLarge} alt={this.state.srcLarge} />
           </Modal>
         )}
       </>
