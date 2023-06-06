@@ -1,6 +1,7 @@
 import css from './Button.module.css';
 import { Component } from 'react';
 import fetchPixabay from '../../services/pixabay-api';
+import PropTypes from 'prop-types';
 
 class Button extends Component {
   state = { disabled: false };
@@ -30,3 +31,12 @@ class Button extends Component {
 }
 
 export default Button;
+
+Button.propTypes = {
+  name: PropTypes.string.isRequired,
+  page: PropTypes.number.isRequired,
+  onChangePage: PropTypes.func.isRequired,
+  onChangeLoader: PropTypes.func.isRequired,
+  loadMore: PropTypes.func,
+  onAddImg: PropTypes.func.isRequired,
+};

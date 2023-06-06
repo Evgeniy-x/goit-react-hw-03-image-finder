@@ -25,6 +25,7 @@ export class App extends Component {
             totalImg: response.total,
           });
         })
+        .catch(error => console.log(error))
         .finally(() => this.setState({ loader: false }));
     }
   }
@@ -54,7 +55,8 @@ export class App extends Component {
           onSubmit={this.addName}
           changePage={this.changePage}
         ></Searchbar>
-        <ImageGallery images={images}></ImageGallery>
+
+        <ImageGallery images={images} />
         {loader ? <Loader /> : null}
         {!(images.length === totalImg) ? (
           <Button

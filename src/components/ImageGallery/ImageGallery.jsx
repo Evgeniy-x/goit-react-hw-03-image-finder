@@ -1,8 +1,8 @@
-// import PropTypes from 'prop-types';
 import css from './ImageGallery.module.css';
 import { Component } from 'react';
 import ImageGalleryItem from './ImageGalleryItem';
 import Modal from '../Modal/Modal';
+import PropTypes from 'prop-types';
 
 class ImageGallery extends Component {
   state = {
@@ -43,3 +43,7 @@ class ImageGallery extends Component {
 }
 
 export default ImageGallery;
+
+ImageGallery.propTypes = {
+  images: PropTypes.array.isRequired,
+};

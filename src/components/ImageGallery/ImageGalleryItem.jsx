@@ -1,5 +1,3 @@
-// import PropTypes from 'prop-types';
-////////
 import css from './ImageGallery.module.css';
 import { useState } from 'react';
 import { Spin } from '../Loader/Loader';

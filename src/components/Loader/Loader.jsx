@@ -11,9 +11,13 @@ class Loader extends Component {
         radius="9"
         color="#4fa94d"
         ariaLabel="three-dots-loading"
-        wrapperStyle={{}}
-        posi
-        wrapperClassName={css.threeDots}
+        wrapperStyle={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+        }}
+        wrapperClassName={css.treeDots}
         visible={true}
       />
     );
