@@ -1,3 +1,4 @@
+import css from './Searchbar.module.css';
 const { Component } = require('react');
 
 export default class Searchbar extends Component {
@@ -14,20 +15,21 @@ export default class Searchbar extends Component {
 
     this.props.onSubmit(this.state.name);
     this.setState({ name: '' });
+    this.props.changePage();
   };
 
   render() {
     return (
-      <header className="searchbar">
-        <form className="form" onSubmit={this.handeleSubmit}>
-          <button type="submit" className="button">
-            <span className="button-label">Search</span>
+      <header className={css.searchbar}>
+        <form className={css.searchForm} onSubmit={this.handeleSubmit}>
+          <button type="submit" className={css.searchFormButton}>
+            <span className={css.searchFormButtonLabel}>Search</span>
           </button>
 
           <input
             onChange={this.handleChangeName}
             value={this.state.name}
-            className="input"
+            className={css.searchFormInput}
             type="text"
             autoComplete="off"
             autoFocus

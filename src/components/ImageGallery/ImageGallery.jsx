@@ -1,23 +1,28 @@
 // import PropTypes from 'prop-types';
-import { nanoid } from 'nanoid';
-
+import css from './ImageGallery.module.css';
 import { Component } from 'react';
 import ImageGalleryItem from './ImageGalleryItem';
+import Modal from '../Modal/Modal';
 
 class ImageGallery extends Component {
   state = {
-    src: '',
+    srcLarge: '',
+    showModal: false,
   };
 
   addLargeURL = largeUrl => {
-    this.setState({ src: largeUrl });
+    this.setState({ srcLarge: largeUrl, showModal: true });
+  };
+
+  toggleModal = () => {
+    this.setState({ showModal: false });
   };
 
   render() {
     const images = this.props.images;
     return (
       <>
-        <ul>
+        <ul className={css.imageGallery}>
           {images.map(({ id, webformatURL, largeImageURL }) => (
             <ImageGalleryItem
               key={id}
@@ -27,6 +32,11 @@ class ImageGallery extends Component {
             ></ImageGalleryItem>
           ))}
         </ul>
+        {this.state.showModal && (
+          <Modal onClose={this.toggleModal}>
+            <img src={this.state.srcLarge} alt="" />
+          </Modal>
+        )}
       </>
     );
   }
